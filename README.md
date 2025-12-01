@@ -534,7 +534,7 @@ Crie este arquivo na raiz para documentação:
 
 ```env
 # Google Gemini API
-GEMINI_API_KEY=AIzaSyA5JmXW5V-3717n6oTocFMJllkIzcSQLHM
+GEMINI_API_KEY=key
 
 # URLs da Aplicação
 FASTAPI_BACKEND_URL=https://seu-app.onrender.com
