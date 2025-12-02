@@ -1,0 +1,56 @@
+name: CI - Build e Testes do FastAPI Backend
+
+# Gatilho: Roda em todo Pull Request (PR) e Push nas branches principais
+on:
+  push:
+    branches:
+      - main
+      - staging
+  pull_request:
+    branches:
+      - main
+      - staging
+
+jobs:
+  # ------------------------------------------------------------------
+  # JOB: CI - Build e Teste de Qualidade
+  # ------------------------------------------------------------------
+  ci_build_and_test:
+    name: ⚙️ Build e Teste
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: ⬇️ Checkout do Código
+        uses: actions/checkout@v4
+
+      # --- Ambiente Python ---
+      - name: 🐍 Configurar Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip' # Usa cache para dependências (acelera o processo)
+
+      - name: 📦 Instalar Dependências (FastAPI)
+        # Assume que o requirements.txt está na raiz
+        run: pip install -r requirements.txt
+        
+      # --- Testes Unitários ---
+      - name: 🧪 Executar Testes Unitários (PLACEHOLDER)
+        # ESTE É O PASSO MAIS IMPORTANTE DO CI.
+        # Você deve instalar o 'pytest' no seu requirements.txt e ter testes.
+        # run: pytest
+        run: |
+          echo "⚠️ ATENÇÃO: Substitua este 'echo' pelo comando real de teste (ex: 'pytest')."
+          echo "Simulando sucesso dos testes por enquanto..."
+          
+      # --- Verificação da Build Docker ---
+      - name: 🐳 Verificar Build Docker
+        # Garante que o Dockerfile funcione e a imagem seja criada.
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          push: false # Apenas constrói, não envia para um registro
+          tags: chatbot-ci-test # Tag de teste temporária
+          
+      - name: ✅ Sucesso do CI
+        run: echo "Integração Contínua Concluída com Sucesso!"

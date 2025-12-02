@@ -1,4 +1,4 @@
-# 🤖 Assistente Inteligente de Estudos
+# 🤖 BeeMo - AI Assistant
 
 > Um sistema de chatbot educacional inteligente que utiliza a Gemini API do Google para responder dúvidas de forma clara, didática e motivacional.
 
@@ -19,7 +19,7 @@
 
 ### Visão Geral
 
-O **Assistente Inteligente de Estudos em Cloud** é uma aplicação full-stack que combina:
+O **Assistente Inteligente** é uma aplicação full-stack que combina:
 
 - **Backend**: API REST construída com **FastAPI** (Python)
 - **Frontend**: Interface interativa com **Streamlit** (Python)
@@ -551,7 +551,7 @@ FASTAPI_PORT=80
 
 | Aspecto | Descrição |
 |--------|----------|
-| **O que é?** | Assistente educacional com IA (Gemini) que responde dúvidas |
+| **O que é?** | Assistente com IA (Gemini) que responde dúvidas |
 | **Como rodar?** | `uvicorn main:app --reload` + `streamlit run streamlit_app.py` |
 | **Padrões** | MVC, Repository, Middleware, Adapter, Singleton, Observer |
 | **Deploy** | Docker multi-stage + Render Web Service |
