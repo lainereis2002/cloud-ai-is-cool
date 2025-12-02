@@ -63,7 +63,7 @@ def initialize_session_state():
     if 'conversations' not in st.session_state:
         # Dicionário onde a chave é o nome do chat, e o valor é o histórico
         st.session_state['conversations'] = {
-            "Chat 1": [{"role": "assistant", "content": "Olá! Eu sou BeeMo, seu assistente. Como posso ajudar hoje?"}]
+            "Chat 1": [{"role": "assistant", "content": "Olá! Eu sou BeeMo, seu ajudante especialista em Cloud Computing, Python e FastAPI. Como posso te ajudar?"}]
         }
     if 'current_chat' not in st.session_state:
         st.session_state['current_chat'] = "Chat 1"
@@ -78,7 +78,7 @@ def new_chat():
     new_chat_name = f"Chat {new_chat_index}"
     
     st.session_state['conversations'][new_chat_name] = [
-        {"role": "assistant", "content": f"Novo chat ({new_chat_name}). Qual sua próxima dúvida?"}
+        {"role": "assistant", "content": f"Esta é uma nova conversa com o BeeMo ({new_chat_name}). Como eu posso te ajudar?"}
     ]
     st.session_state['current_chat'] = new_chat_name
     st.rerun() # Força a interface a atualizar para o novo chat
@@ -119,8 +119,8 @@ with st.sidebar:
 # ÁREA PRINCIPAL DO CHAT
 # ----------------------------------------------------------------------
 
-st.title("🤖 BeeMo - Artificial Inteligence")
-st.caption("Você pode me perguntar qualquer coisa. Desenvolvido com Python, FastAPI e Gemini API.")
+st.title("🤖 BeeMo - Assistente Educacional")
+st.caption("Eu sou especialista em Cloud Computing, Pyhton e FastAPI, mas você pode me perguntar outras coisas do mundo de computação também. Fui desenvolvido com Python, FastAPI e Gemini API.")
 
 # Obtém o histórico do chat atualmente selecionado na sidebar
 current_chat_name = st.session_state['current_chat']
